@@ -1,8 +1,8 @@
 A library for loading and playing audio using HTML 5 for Angular 7/8/9/10/11/12.  
-(https://mudigal-technologies.github.io/ngx-audio-player/)
+(https://ufondu88.github.io/ngx-audio-player/)
 
 
-[![npm](https://img.shields.io/badge/demo-online-ed1c46.svg?colorB=orange)](https://mudigal-technologies.github.io/ngx-audio-player/) [![npm version](https://img.shields.io/npm/v/ngx-audio-player.svg?colorB=red)](https://www.npmjs.com/package/ngx-audio-player) [![Downloads](https://img.shields.io/npm/dm/ngx-audio-player.svg?colorB=48C9B0)](https://www.npmjs.com/package/ngx-audio-player) [![licence](https://img.shields.io/npm/l/ngx-audio-player.svg?colorB=yellow)](https://www.npmjs.com/package/ngx-audio-player) [![Support](https://img.shields.io/badge/support-Angular%207%2B-blue.svg)](https://www.npmjs.com/package/ngx-audio-player/v/7.2.0) [![Support](https://img.shields.io/badge/support-Angular%208+-brown.svg)](https://www.npmjs.com/package/ngx-audio-player/v/8.1.4) [![Support](https://img.shields.io/badge/support-Angular%209+-black.svg)](https://www.npmjs.com/package/ngx-audio-player/v/9.2.3) [![Support](https://img.shields.io/badge/support-Angular%2010+-teal.svg)](https://www.npmjs.com/package/ngx-audio-player/v/10.1.4) [![Support](https://img.shields.io/badge/support-Angular%2011+-grey.svg)](https://www.npmjs.com/package/ngx-audio-player/v/11.0.4) [![Support](https://img.shields.io/badge/support-Angular%2012+-indigo.svg)](https://www.npmjs.com/package/ngx-audio-player/v/12.0.0)
+[![npm](https://img.shields.io/badge/demo-online-ed1c46.svg?colorB=orange)](https://ufondu88.github.io/ngx-audio-player/) [![npm version](https://img.shields.io/npm/v/ngx-audio-player.svg?colorB=red)](https://www.npmjs.com/package/ngx-audio-player) [![Downloads](https://img.shields.io/npm/dm/ngx-audio-player.svg?colorB=48C9B0)](https://www.npmjs.com/package/ngx-audio-player) [![licence](https://img.shields.io/npm/l/ngx-audio-player.svg?colorB=yellow)](https://www.npmjs.com/package/ngx-audio-player) [![Support](https://img.shields.io/badge/support-Angular%207%2B-blue.svg)](https://www.npmjs.com/package/ngx-audio-player/v/7.2.0) [![Support](https://img.shields.io/badge/support-Angular%208+-brown.svg)](https://www.npmjs.com/package/ngx-audio-player/v/8.1.4) [![Support](https://img.shields.io/badge/support-Angular%209+-black.svg)](https://www.npmjs.com/package/ngx-audio-player/v/9.2.3) [![Support](https://img.shields.io/badge/support-Angular%2010+-teal.svg)](https://www.npmjs.com/package/ngx-audio-player/v/10.1.4) [![Support](https://img.shields.io/badge/support-Angular%2011+-grey.svg)](https://www.npmjs.com/package/ngx-audio-player/v/11.0.4) [![Support](https://img.shields.io/badge/support-Angular%2012+-indigo.svg)](https://www.npmjs.com/package/ngx-audio-player/v/12.0.0)
 
 ## Table of contents
 
@@ -18,9 +18,9 @@ A library for loading and playing audio using HTML 5 for Angular 7/8/9/10/11/12.
 
 A simple, clean, responsive player for playing multiple audios with playlist support.
 
-![alt tag](https://github.com/mudigal-technologies/ngx-audio-player/blob/master/docs/images/advanced-player.png?raw=true)
+![alt tag](https://github.com/ufondu88/ngx-audio-player/blob/master/docs/images/advanced-player.png?raw=true)
 
-[Working Demo](https://mudigal-technologies.github.io/ngx-audio-player/)
+[Working Demo](https://ufondu88.github.io/ngx-audio-player/)
 
 ## Installation
 
@@ -315,7 +315,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>Edric Chan</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=EdricChan03"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=EdricChan03"
                 title="Code">💻</a>
         </td>
         <td align="center">
@@ -324,7 +324,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>RokiFoki</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=RokiFoki"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=RokiFoki"
                 title="Code">💻</a>
         </td>
         <td align="center">
@@ -333,7 +333,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>ewwwgiddings</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=ewwwgiddings"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=ewwwgiddings"
                 title="Documentation">📖</a>
         </td>
         <td align="center">
@@ -342,7 +342,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>Caleb Crosby</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=cicsolutions"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=cicsolutions"
                 title="Code">💻
             </a>
         </td>
@@ -352,7 +352,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>Shelly</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=6utt3rfly"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=6utt3rfly"
                 title="Code">💻
             </a>
         </td>
@@ -362,7 +362,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>Simon Reinsch</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=Urinprobe"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=Urinprobe"
                 title="Code">💻
             </a>
         </td>
@@ -372,7 +372,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>AnwarTuha</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=AnwarTuha"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=AnwarTuha"
                 title="Code">💻
             </a>
         </td>
@@ -382,7 +382,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>Bogdan Baghiu</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=bogdanbaghiu"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=bogdanbaghiu"
                 title="Code">💻
             </a>
         </td>
@@ -392,7 +392,7 @@ Thanks goes to these wonderful people:
                 <br /><sub><b>Kareem Jeiroudi</b></sub>
             </a><br />
             <a target="_blank" rel="noopener noreferrer"
-                href="https://github.com/mudigal-technologies/ngx-audio-player/commits?author=kareemjeiroudi"
+                href="https://github.com/ufondu88/ngx-audio-player/commits?author=kareemjeiroudi"
                 title="Code">💻
             </a>
         </td>

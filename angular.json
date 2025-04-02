@@ -30,12 +30,40 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              {
+                "input": "src/styles.scss"
+              },
+              {
+                "inject": false,
+                "input": "@angular/material/prebuilt-themes/pink-bluegrey.css",
+                "bundleName": "pink-bluegrey"
+              },
+              {
+                "inject": false,
+                "input": "@angular/material/prebuilt-themes/deeppurple-amber.css",
+                "bundleName": "deeppurple-amber"
+              },
+              {
+                "inject": false,
+                "input": "@angular/material/prebuilt-themes/purple-green.css",
+                "bundleName": "purple-green"
+              },
+              {
+                "inject": true,
+                "input": "@angular/material/prebuilt-themes/indigo-pink.css",
+                "bundleName": "indigo-pink"
+              }
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -53,7 +81,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

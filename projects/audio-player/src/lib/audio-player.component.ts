@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, OnInit, Input, ViewChild, ElementRef, model, output, effect, computed, WritableSignal, signal, Signal, AfterViewInit } from '@angular/core';
+import { Component, input, OnInit, Input, ViewChild, ElementRef, model, output, effect, computed, WritableSignal, signal, Signal, AfterViewInit, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlider, MatSliderModule } from '@angular/material/slider';
@@ -10,6 +10,7 @@ import { SecondsToMinutesPipe } from './pipes/second-to-minutes.pipe';
 import { FormsModule } from '@angular/forms';
 import { Track } from './model/track.model';
 import { MatButtonModule } from '@angular/material/button';
+import { AudioPlayerService } from './audio-player.service';
 
 @Component({
   selector: 'app-audio-player',
@@ -72,6 +73,8 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('audioPlayer', { static: true }) playerElementRef: ElementRef;
   player: HTMLAudioElement
 
+  audioplayerService = inject(AudioPlayerService);
+
   constructor(elem: ElementRef) {
     if (elem.nativeElement.tagName.toLowerCase() === 'mat-advanced-audio-player') {
       console.warn(`'mat-advanced-audio-player' selector is deprecated; use 'ngx-audio-player' instead.`);
@@ -86,6 +89,14 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
       // Trigger `buildDisplayedColumns()` whenever any of the inputs change
       console.log('displayArtist:', this.displayArtist(), 'displayDuration:', this.displayDuration());
       this.buildDisplayedColumns();
+    });
+
+    effect(() => {
+      const tracks = this.audioplayerService.playlist()
+      if (tracks !== null && tracks.length > 0) {
+        this.tracks = tracks;
+        this.initialize();
+      }
     });
   }
 
@@ -103,6 +114,22 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
     }
   }
 
+  initialize() {
+    this.buildDisplayedColumns();
+
+    // populate indexs for the track and configure
+    // material table data source and paginator
+    this.setDataSourceAttributes();
+
+
+    this.player.currentTime = this.startOffset;
+    this.updateCurrentTrack();
+
+    if (this.autoPlay()) {
+      this.triggerPlay();
+    }
+  }
+
   @Input()
   set startOffset(seconds: number) {
     this.startOffsetValue = seconds;
@@ -111,6 +138,33 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   get startOffset(): number {
     return this.startOffsetValue;
+  }
+
+  play() {    
+    if (!this.isPlaying) {
+      setTimeout(() => {
+        this.isPlaying = true;
+        this.player.play();
+        this.audioplayerService.currentTrack.set(this.tracks[this.currentIndex]);        
+      }, 50);
+    }
+  }
+
+  pause() {
+    if (this.isPlaying) {
+      setTimeout(() => {
+        this.isPlaying = false;
+        this.player.pause();
+      }, 50);
+    }
+  }
+
+  stop() {
+    setTimeout(() => {
+      this.isPlaying = false;
+      this.player.pause();
+      this.player.currentTime = 0;
+    }, 50);
   }
 
   currVolumeChanged(event: any) {
@@ -123,6 +177,7 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   onPlaying() {
     this.isPlaying = true;
+    this.audioplayerService.currentTrack.set(this.tracks[this.currentIndex]);
     this.trackPlaying.emit("TrackPlaying");
     this.duration = Math.floor(this.player.duration);
   }
@@ -134,6 +189,7 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   onTimeUpdate() {
     this.currentTime = Math.floor(this.player.currentTime);
+    this.audioplayerService.currentTime.set(this.currentTime);
   }
 
   onMetadataLoaded() {
@@ -143,7 +199,6 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   onTrackEnded() {
     this.trackEnded.emit("TrackEnded");
-    console.log('track ended');
 
     // autoplay next track if repeat is set to 'all' or 'one'
     if (this.mediaType !== 'stream' && this.checkIfSongHasStartedSinceAtleastTwoSeconds()) {
@@ -226,18 +281,19 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   nextSong(): void {
     this.currentIndex = (this.currentIndex + 1) % this.tracks.length;
+    this.updateCurrentTrack();
     this.nextTrackRequested.emit("NextTrackRequested");
     this.triggerPlay();
   }
 
   previousSong(): void {
     if (this.player.currentTime > 2) {
-      console.log('Resetting song to start');
-
       this.player.currentTime = 0;
     } else {
       this.currentIndex = (this.currentIndex - 1 + this.tracks.length) % this.tracks.length;
     }
+
+    this.updateCurrentTrack();
     this.previousTrackRequested.emit("PreviousTrackRequested");
     this.triggerPlay();
   }
@@ -248,9 +304,14 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit {
 
   selectTrack(index: number): void {
     this.currentIndex = index - 1;
+    this.updateCurrentTrack();
 
     this.trackSelected.emit("TrackSelected");
     this.triggerPlay();
+  }
+
+  updateCurrentTrack() {    
+    this.audioplayerService.currentTrack.set((this.tracks[this.currentIndex]));
   }
 
   checkIfSongHasStartedSinceAtleastTwoSeconds(): boolean {
