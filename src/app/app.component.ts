@@ -1,10 +1,15 @@
-import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavBarComponent } from './shared/navbar/nav-bar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, NavBarComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'ngx-audio-player-demo';

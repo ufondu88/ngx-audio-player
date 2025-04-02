@@ -1,26 +1,28 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  NgModule,
   OnDestroy,
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 import { StyleManager } from '../style-manager';
 import { DocsSiteTheme, ThemeStorage } from './theme-storage/theme-storage';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { Subscription } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-theme-picker',
+  standalone: true,
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatMenuModule, MatTooltipModule],
+  providers: [StyleManager, ThemeStorage],
   templateUrl: 'theme-picker.component.html',
   styleUrls: ['theme-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -114,16 +116,3 @@ export class ThemePickerComponent implements OnInit, OnDestroy {
   }
 }
 
-@NgModule({
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTooltipModule,
-  ],
-  exports: [ThemePickerComponent],
-  declarations: [ThemePickerComponent],
-  providers: [StyleManager, ThemeStorage],
-})
-export class ThemePickerModule { }
